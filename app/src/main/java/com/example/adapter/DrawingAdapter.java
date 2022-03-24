@@ -95,113 +95,113 @@ public class DrawingAdapter extends RecyclerView.Adapter {
             viewHolder.lyt_parent.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (mContext.getString(R.string.interstitial_ads_on_off).equals("true")) {
-                        if (mContext.getString(R.string.interstitial_ads_type).equals("admob")) {
-                            Constant.AD_COUNT++;
-                            if (Constant.AD_COUNT == Constant.AD_COUNT_SHOW) {
-                                Constant.AD_COUNT = 0;
-                                Loading();
-                                GDPRChecker.Request request = GDPRChecker.getRequest();
-                                AdRequest.Builder builder = new AdRequest.Builder();
-                                if (request == GDPRChecker.Request.NON_PERSONALIZED) {
-                                    Bundle extras = new Bundle();
-                                    extras.putString("npa", "1");
-                                    builder.addNetworkExtrasBundle(AdMobAdapter.class, extras);
-                                }
-                                InterstitialAd.load(mContext, mContext.getString(R.string.admob_interstitial_id), builder.build(), new InterstitialAdLoadCallback() {
-                                    @Override
-                                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
-                                        super.onAdLoaded(interstitialAd);
-                                        interstitialAd.show((Activity) mContext);
-                                        pDialog.dismiss();
-                                        interstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
-                                            @Override
-                                            public void onAdDismissedFullScreenContent() {
-                                                super.onAdDismissedFullScreenContent();
-                                                Intent image_princess = new Intent(mContext, ActivityDrawingDetails.class);
-                                                image_princess.putExtra("NAME", singleItem.getName());
-                                                mContext.startActivity(image_princess);
-                                            }
-
-                                            @Override
-                                            public void onAdFailedToShowFullScreenContent(com.google.android.gms.ads.AdError adError) {
-                                                super.onAdFailedToShowFullScreenContent(adError);
-                                                pDialog.dismiss();
-                                                Intent image_princess = new Intent(mContext, ActivityDrawingDetails.class);
-                                                image_princess.putExtra("NAME", singleItem.getName());
-                                                mContext.startActivity(image_princess);
-                                            }
-                                        });
-                                    }
-
-                                    @Override
-                                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                                        super.onAdFailedToLoad(loadAdError);
-                                        pDialog.dismiss();
-                                        Intent image_princess = new Intent(mContext, ActivityDrawingDetails.class);
-                                        image_princess.putExtra("NAME", singleItem.getName());
-                                        mContext.startActivity(image_princess);
-                                    }
-                                });
-                            } else {
+//                    if (mContext.getString(R.string.interstitial_ads_on_off).equals("true")) {
+//                        if (mContext.getString(R.string.interstitial_ads_type).equals("admob")) {
+//                            Constant.AD_COUNT++;
+//                            if (Constant.AD_COUNT == Constant.AD_COUNT_SHOW) {
+//                                Constant.AD_COUNT = 0;
+//                                Loading();
+//                                GDPRChecker.Request request = GDPRChecker.getRequest();
+//                                AdRequest.Builder builder = new AdRequest.Builder();
+//                                if (request == GDPRChecker.Request.NON_PERSONALIZED) {
+//                                    Bundle extras = new Bundle();
+//                                    extras.putString("npa", "1");
+//                                    builder.addNetworkExtrasBundle(AdMobAdapter.class, extras);
+//                                }
+//                                InterstitialAd.load(mContext, mContext.getString(R.string.admob_interstitial_id), builder.build(), new InterstitialAdLoadCallback() {
+//                                    @Override
+//                                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+//                                        super.onAdLoaded(interstitialAd);
+//                                        interstitialAd.show((Activity) mContext);
+//                                        pDialog.dismiss();
+//                                        interstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+//                                            @Override
+//                                            public void onAdDismissedFullScreenContent() {
+//                                                super.onAdDismissedFullScreenContent();
+//                                                Intent image_princess = new Intent(mContext, ActivityDrawingDetails.class);
+//                                                image_princess.putExtra("NAME", singleItem.getName());
+//                                                mContext.startActivity(image_princess);
+//                                            }
+//
+//                                            @Override
+//                                            public void onAdFailedToShowFullScreenContent(com.google.android.gms.ads.AdError adError) {
+//                                                super.onAdFailedToShowFullScreenContent(adError);
+//                                                pDialog.dismiss();
+//                                                Intent image_princess = new Intent(mContext, ActivityDrawingDetails.class);
+//                                                image_princess.putExtra("NAME", singleItem.getName());
+//                                                mContext.startActivity(image_princess);
+//                                            }
+//                                        });
+//                                    }
+//
+//                                    @Override
+//                                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+//                                        super.onAdFailedToLoad(loadAdError);
+//                                        pDialog.dismiss();
+//                                        Intent image_princess = new Intent(mContext, ActivityDrawingDetails.class);
+//                                        image_princess.putExtra("NAME", singleItem.getName());
+//                                        mContext.startActivity(image_princess);
+//                                    }
+//                                });
+//                            } else {
                                 Intent image_princess = new Intent(mContext, ActivityDrawingDetails.class);
                                 image_princess.putExtra("NAME", singleItem.getName());
                                 mContext.startActivity(image_princess);
-                            }
-                        } else {
-                            Constant.AD_COUNT++;
-                            if (Constant.AD_COUNT == Constant.AD_COUNT_SHOW) {
-                                Constant.AD_COUNT = 0;
-                                Loading();
-                                final com.facebook.ads.InterstitialAd mInterstitialfb = new com.facebook.ads.InterstitialAd(mContext, mContext.getString(R.string.facebook_interstitial_id));
-                                InterstitialAdListener interstitialAdListener = new InterstitialAdListener() {
-                                    @Override
-                                    public void onInterstitialDisplayed(Ad ad) {
-                                    }
-
-                                    @Override
-                                    public void onInterstitialDismissed(Ad ad) {
-                                        Intent image_princess = new Intent(mContext, ActivityDrawingDetails.class);
-                                        image_princess.putExtra("NAME", singleItem.getName());
-                                        mContext.startActivity(image_princess);
-                                    }
-
-                                    @Override
-                                    public void onError(Ad ad, AdError adError) {
-                                        pDialog.dismiss();
-                                        Intent image_princess = new Intent(mContext, ActivityDrawingDetails.class);
-                                        image_princess.putExtra("NAME", singleItem.getName());
-                                        mContext.startActivity(image_princess);
-                                    }
-
-                                    @Override
-                                    public void onAdLoaded(Ad ad) {
-                                        pDialog.dismiss();
-                                        mInterstitialfb.show();
-                                    }
-
-                                    @Override
-                                    public void onAdClicked(Ad ad) {
-                                    }
-
-                                    @Override
-                                    public void onLoggingImpression(Ad ad) {
-                                    }
-                                };
-                                com.facebook.ads.InterstitialAd.InterstitialLoadAdConfig loadAdConfig = mInterstitialfb.buildLoadAdConfig().withAdListener(interstitialAdListener).withCacheFlags(CacheFlag.ALL).build();
-                                mInterstitialfb.loadAd(loadAdConfig);
-
-                            } else {
-                                Intent image_princess = new Intent(mContext, ActivityDrawingDetails.class);
-                                image_princess.putExtra("NAME", singleItem.getName());
-                                mContext.startActivity(image_princess);
-                            }
-                        }
-                    } else {
-                        Intent image_princess = new Intent(mContext, ActivityDrawingDetails.class);
-                        image_princess.putExtra("NAME", singleItem.getName());
-                        mContext.startActivity(image_princess);
-                    }
+//                            }
+//                        } else {
+//                            Constant.AD_COUNT++;
+//                            if (Constant.AD_COUNT == Constant.AD_COUNT_SHOW) {
+//                                Constant.AD_COUNT = 0;
+//                                Loading();
+//                                final com.facebook.ads.InterstitialAd mInterstitialfb = new com.facebook.ads.InterstitialAd(mContext, mContext.getString(R.string.facebook_interstitial_id));
+//                                InterstitialAdListener interstitialAdListener = new InterstitialAdListener() {
+//                                    @Override
+//                                    public void onInterstitialDisplayed(Ad ad) {
+//                                    }
+//
+//                                    @Override
+//                                    public void onInterstitialDismissed(Ad ad) {
+//                                        Intent image_princess = new Intent(mContext, ActivityDrawingDetails.class);
+//                                        image_princess.putExtra("NAME", singleItem.getName());
+//                                        mContext.startActivity(image_princess);
+//                                    }
+//
+//                                    @Override
+//                                    public void onError(Ad ad, AdError adError) {
+//                                        pDialog.dismiss();
+//                                        Intent image_princess = new Intent(mContext, ActivityDrawingDetails.class);
+//                                        image_princess.putExtra("NAME", singleItem.getName());
+//                                        mContext.startActivity(image_princess);
+//                                    }
+//
+//                                    @Override
+//                                    public void onAdLoaded(Ad ad) {
+//                                        pDialog.dismiss();
+//                                        mInterstitialfb.show();
+//                                    }
+//
+//                                    @Override
+//                                    public void onAdClicked(Ad ad) {
+//                                    }
+//
+//                                    @Override
+//                                    public void onLoggingImpression(Ad ad) {
+//                                    }
+//                                };
+//                                com.facebook.ads.InterstitialAd.InterstitialLoadAdConfig loadAdConfig = mInterstitialfb.buildLoadAdConfig().withAdListener(interstitialAdListener).withCacheFlags(CacheFlag.ALL).build();
+//                                mInterstitialfb.loadAd(loadAdConfig);
+//
+//                            } else {
+//                                Intent image_princess = new Intent(mContext, ActivityDrawingDetails.class);
+//                                image_princess.putExtra("NAME", singleItem.getName());
+//                                mContext.startActivity(image_princess);
+//                            }
+//                        }
+//                    } else {
+//                        Intent image_princess = new Intent(mContext, ActivityDrawingDetails.class);
+//                        image_princess.putExtra("NAME", singleItem.getName());
+//                        mContext.startActivity(image_princess);
+//                    }
                 }
             });
         } else if (holder.getItemViewType() == VIEW_TYPE_Ad) {
@@ -212,36 +212,36 @@ public class DrawingAdapter extends RecyclerView.Adapter {
 
                     if (adOption.linearLayout.getChildCount() == 0) {
 
-                        View view = mContext.getLayoutInflater().inflate(R.layout.admob_ad, null, true);
+                       //View view = mContext.getLayoutInflater().inflate(R.layout.admob_ad, null, true);
 
-                        final TemplateView templateView = view.findViewById(R.id.my_template);
-                        if (templateView.getParent() != null) {
-                            ((ViewGroup) templateView.getParent()).removeView(templateView);
-                        }
-                        adOption.linearLayout.addView(templateView);
-                        AdLoader adLoader = new AdLoader.Builder(mContext, mContext.getString(R.string.admob_native_id))
-                                .forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
-                                    @Override
-                                    public void onUnifiedNativeAdLoaded(UnifiedNativeAd unifiedNativeAd) {
-                                        NativeTemplateStyle styles = new
-                                                NativeTemplateStyle.Builder()
-                                                .build();
+                        //final TemplateView templateView = view.findViewById(R.id.my_template);
+//                        if (templateView.getParent() != null) {
+//                            ((ViewGroup) templateView.getParent()).removeView(templateView);
+//                        }
+//                        adOption.linearLayout.addView(templateView);
+//                        AdLoader adLoader = new AdLoader.Builder(mContext, mContext.getString(R.string.admob_native_id))
+//                                .forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
+//                                    @Override
+//                                    public void onUnifiedNativeAdLoaded(UnifiedNativeAd unifiedNativeAd) {
+//                                        NativeTemplateStyle styles = new
+//                                                NativeTemplateStyle.Builder()
+//                                                .build();
+//
+//                                        templateView.setStyles(styles);
+//                                        templateView.setNativeAd(unifiedNativeAd);
+//
+//                                    }
+//                                })
+//                                .build();
 
-                                        templateView.setStyles(styles);
-                                        templateView.setNativeAd(unifiedNativeAd);
-
-                                    }
-                                })
-                                .build();
-
-                        GDPRChecker.Request request = GDPRChecker.getRequest();
-                        AdRequest.Builder builder = new AdRequest.Builder();
-                        if (request == GDPRChecker.Request.NON_PERSONALIZED) {
-                            Bundle extras = new Bundle();
-                            extras.putString("npa", "1");
-                            builder.addNetworkExtrasBundle(AdMobAdapter.class, extras);
-                        }
-                        adLoader.loadAd(builder.build());
+//                        GDPRChecker.Request request = GDPRChecker.getRequest();
+//                        AdRequest.Builder builder = new AdRequest.Builder();
+//                        if (request == GDPRChecker.Request.NON_PERSONALIZED) {
+//                            Bundle extras = new Bundle();
+//                            extras.putString("npa", "1");
+//                            builder.addNetworkExtrasBundle(AdMobAdapter.class, extras);
+//                        }
+//                        adLoader.loadAd(builder.build());
                     }
 
                 } else {

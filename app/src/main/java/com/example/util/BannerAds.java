@@ -30,9 +30,9 @@ public class BannerAds {
                         extras.putString("npa", "1");
                         builder.addNetworkExtrasBundle(AdMobAdapter.class, extras);
                     } // else do nothing , it will load PERSONALIZED ads
-                    mAdView.loadAd(builder.build());
-                    mAdViewLayout.addView(mAdView);
-                    mAdViewLayout.setGravity(Gravity.CENTER);
+//                    mAdView.loadAd(builder.build());
+//                    mAdViewLayout.addView(mAdView);
+//                    mAdViewLayout.setGravity(Gravity.CENTER);
                 } else {
                     com.facebook.ads.AdView adView = new com.facebook.ads.AdView(context, context.getString(R.string.facebook_banner_id), com.facebook.ads.AdSize.BANNER_HEIGHT_50);
                     adView.loadAd();

@@ -90,8 +90,8 @@ public class ActivityDrawingDetails extends AppCompatActivity {
 
         progressDialog = new ProgressDialog(ActivityDrawingDetails.this);
 
-        lytAds = findViewById(R.id.adView);
-        BannerAds.ShowBannerAds(ActivityDrawingDetails.this, lytAds);
+//        lytAds = findViewById(R.id.adView);
+//        BannerAds.ShowBannerAds(ActivityDrawingDetails.this, lytAds);
 
         lytDraw = findViewById(R.id.rell2);
         lytDrawSave = findViewById(R.id.rell);

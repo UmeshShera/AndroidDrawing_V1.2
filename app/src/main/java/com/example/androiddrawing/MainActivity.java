@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         navigationView = findViewById(R.id.nav_view);
         mDrawerLayout = findViewById(R.id.drawer_layout);
 
-        adLayout = findViewById(R.id.adView);
+        //adLayout = findViewById(R.id.adView);
 
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close) {
             @Override
