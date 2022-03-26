@@ -21,7 +21,6 @@
             android:contentDescription="@string/app_name"
             ads:srcCompat="@drawable/img_backpress" />
 
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -125,7 +124,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignWithParentIfMissing="true"
-        android:layout_above="@+id/adView"
+        android:layout_above="@+id/ll_ads"
         android:layout_centerHorizontal="true"
         android:orientation="vertical">
 
@@ -298,10 +297,11 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/adView"
+        android:id="@+id/ll_ads"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:orientation="vertical" />
+        android:orientation="vertical"
+        ads:adSize="BANNER" />
 
 </RelativeLayout>

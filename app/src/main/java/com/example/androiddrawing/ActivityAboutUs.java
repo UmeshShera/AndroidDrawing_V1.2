@@ -1,5 +1,8 @@
 package com.example.androiddrawing;
 
+import static com.example.util.i_Ads2.PthinkFacebookBannerSmall;
+
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -7,14 +10,22 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.webkit.WebView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
 import com.example.util.JsonUtils;
 import com.example.util.StatusBarUtil;
-import com.viaviapp.androiddrawingdemo.R;
+import com.example.util.i_Ads2;
+import com.example.util.i_SharedString2;
+import com.example.util.i_SharedUtils2;
+
+import howtodraw.drawing.lessons.art.R;
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 public class ActivityAboutUs extends AppCompatActivity {
@@ -22,6 +33,7 @@ public class ActivityAboutUs extends AppCompatActivity {
     TextView txtAppName, txtVersion, txtCompany, txtEmail, txtWebsite, txtContact;
     WebView webView;
     JsonUtils jsonUtils;
+
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
@@ -40,6 +52,12 @@ public class ActivityAboutUs extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
+
+        LinearLayout llbanner = findViewById(R.id.ll_ads);
+        PthinkFacebookBannerSmall(ActivityAboutUs.this, llbanner);
+
+        i_Ads2.NativeBiGAds(ActivityAboutUs.this,findViewById(R.id.fl_adplaceholder));
+        i_Ads2.NativeBiGAds(ActivityAboutUs.this,findViewById(R.id.fl_adplaceholder1));
 
         jsonUtils = new JsonUtils(this);
         jsonUtils.forceRTLIfSupported(getWindow());
@@ -71,10 +89,10 @@ public class ActivityAboutUs extends AppCompatActivity {
                 + "<style type=\"text/css\">@font-face {font-family: MyFont;src: url(\"file:///android_asset/fonts/Montserrat-Medium_0.otf\")}body{font-family: MyFont;color: #8D8D8D;text-align:justify}"
                 + "</style></head>"
                 + "<body>"
-                +  htmlText
+                + htmlText
                 + "</body></html>";
 
-        webView.loadDataWithBaseURL(null,text, mimeType, encoding,null);
+        webView.loadDataWithBaseURL(null, text, mimeType, encoding, null);
 
         LinearLayout linearLayout_email = findViewById(R.id.linearLayout_email_about_us);
         LinearLayout linearLayout_website = findViewById(R.id.linearLayout_web_about_us);
@@ -83,6 +101,9 @@ public class ActivityAboutUs extends AppCompatActivity {
         linearLayout_email.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if ((!i_Ads2.ShowAds(ActivityAboutUs.this))){
+                    return;
+                }
                 try {
                     Intent emailIntent = new Intent(Intent.ACTION_VIEW);
                     emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{
@@ -99,6 +120,9 @@ public class ActivityAboutUs extends AppCompatActivity {
         linearLayout_website.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if ((!i_Ads2.ShowAds(ActivityAboutUs.this))){
+                    return;
+                }
                 try {
                     String url = getResources().getString(R.string.website_name);
                     if (!url.startsWith("http://") && !url.startsWith("https://")) {
@@ -125,6 +149,64 @@ public class ActivityAboutUs extends AppCompatActivity {
             }
         });
 
+        onlyBtnAddShow();
+
+    }
+
+    private void onlyBtnAddShow() {
+
+        LinearLayout btn_version =findViewById(R.id.btn_version);
+        btn_version.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if ((!i_Ads2.ShowAds(ActivityAboutUs.this))){
+                    return;
+                }
+            }
+        });
+
+        LinearLayout btn_company =findViewById(R.id.btn_company);
+        btn_company.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if ((!i_Ads2.ShowAds(ActivityAboutUs.this))){
+                    return;
+                }
+            }
+        });
+
+
+        ImageView btnplay = findViewById(R.id.btnplay);
+        btnplay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent advertise = new Intent(ActivityAboutUs.this, AdvertisementClass.class);
+                i_Ads2.ShowAds(ActivityAboutUs.this, advertise);
+            }
+        });
+        if (i_SharedUtils2.get(i_SharedString2.AdsExtraBtn).equalsIgnoreCase("1")) {
+            btnplay.setVisibility(View.VISIBLE);
+            ValueAnimator valueAnimator = ValueAnimator.ofFloat(0f, 300f);
+            //repeats the animation 2 times
+            valueAnimator.setRepeatCount(200000);
+            valueAnimator.setRepeatMode(ValueAnimator.RESTART);
+            valueAnimator.setInterpolator(new AccelerateDecelerateInterpolator()); // increase the speed first and then decrease
+            // animate over the course of 700 milliseconds
+            valueAnimator.setDuration(2000);
+// define how to update the view at each "step" of the animation
+            valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                @Override
+                public void onAnimationUpdate(ValueAnimator animation) {
+                    float progress = (float) animation.getAnimatedValue();
+                    btnplay.setRotationX(progress);
+
+                }
+            });
+            valueAnimator.start();
+        } else {
+            btnplay.setVisibility(View.GONE);
+        }
+
     }
 
     @Override
@@ -138,5 +220,10 @@ public class ActivityAboutUs extends AppCompatActivity {
                 return super.onOptionsItemSelected(menuItem);
         }
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        i_Ads2.ShowAdsBackPressedFinish(ActivityAboutUs.this);
     }
 }

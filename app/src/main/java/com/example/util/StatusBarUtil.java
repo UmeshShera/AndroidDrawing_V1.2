@@ -9,7 +9,7 @@ import android.os.Build;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.viaviapp.androiddrawingdemo.R;
+import howtodraw.drawing.lessons.art.R;
 
 
 public class StatusBarUtil {

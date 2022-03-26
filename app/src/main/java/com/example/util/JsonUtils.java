@@ -13,7 +13,7 @@ import android.view.WindowManager;
 
 import androidx.appcompat.app.AlertDialog;
 
-import com.viaviapp.androiddrawingdemo.R;
+import howtodraw.drawing.lessons.art.R;
 
 
 public class JsonUtils {

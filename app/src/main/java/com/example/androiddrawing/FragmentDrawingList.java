@@ -20,7 +20,10 @@ import com.example.util.Drawing_Image_Arrays;
 import com.example.util.EnchantedViewPager;
 import com.example.util.ItemOffsetDecoration;
 import com.example.util.JsonUtils;
-import com.viaviapp.androiddrawingdemo.R;
+import com.example.util.i_SharedInt2;
+import com.example.util.i_SharedUtils2;
+
+import howtodraw.drawing.lessons.art.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,18 +77,19 @@ public class FragmentDrawingList extends Fragment {
         });
         for (int i = 0; i < title.length; i++) {
             DrawingListItem item = new DrawingListItem(description[i], title[i], Drawing_Image_Arrays.icons[i]);
-            if (requireActivity().getString(R.string.native_ads_on_off).equals("true")) {
+            /*if (requireActivity().getString(R.string.native_ads_on_off).equals("true")) {
                 if (j % Integer.parseInt(getString(R.string.native_ads_position)) == 0) {
                     mListItem.add(null);
                     j++;
                 }
-            }
+            }*/
             mListItem.add(item);
             j++;
         }
 
         adapter = new DrawingAdapter(getActivity(), mListItem);
-        recyclerView.setAdapter(adapter);
+        AdmobbanerAdAdapterILauncher fbAdapter = AdmobbanerAdAdapterILauncher.Builder.with(adapter, getActivity()).adItemInterval(i_SharedUtils2.get(i_SharedInt2.InBetweenListNativeBnr)).build();
+        recyclerView.setAdapter(fbAdapter);
 
         sliderItems = new ArrayList<>();
         circleIndicator = rootView.findViewById(R.id.indicator_unselected_background);

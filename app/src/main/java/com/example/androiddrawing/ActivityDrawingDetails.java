@@ -1,5 +1,7 @@
 package com.example.androiddrawing;
 
+import static com.example.util.i_Ads2.PthinkFacebookBannerSmall;
+
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -42,11 +44,12 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener;
 
-import com.example.util.BannerAds;
 import com.example.util.ColorPickerDialog;
 import com.example.util.Drawing_Image_Arrays;
 import com.example.util.JsonUtils;
-import com.viaviapp.androiddrawingdemo.R;
+import com.example.util.i_Ads2;
+
+import howtodraw.drawing.lessons.art.R;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -67,7 +70,7 @@ public class ActivityDrawingDetails extends AppCompatActivity {
     protected int progress;
     protected float stroke = 6;
     PaintView pv;
-    String  strTitleName;
+    String strTitleName;
     int pos;
     TextView tvTitle, tvStep, tvBrush, tvColor, tvClear, tvStroke, tvSave, tvErasure, tvDevBy;
     ImageView ivBackPress, ivPrevious, ivForward, ivShare;
@@ -89,6 +92,9 @@ public class ActivityDrawingDetails extends AppCompatActivity {
         jsonUtils.forceRTLIfSupported(getWindow());
 
         progressDialog = new ProgressDialog(ActivityDrawingDetails.this);
+
+        LinearLayout llbanner = findViewById(R.id.ll_ads);
+        PthinkFacebookBannerSmall(ActivityDrawingDetails.this, llbanner);
 
 //        lytAds = findViewById(R.id.adView);
 //        BannerAds.ShowBannerAds(ActivityDrawingDetails.this, lytAds);
@@ -152,6 +158,9 @@ public class ActivityDrawingDetails extends AppCompatActivity {
         ivColorPick.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                if ((!i_Ads2.ShowAds(ActivityDrawingDetails.this))) {
+                    return;
+                }
                 showColorPickerDialogDemo();
                 tvBrush.setTextColor(getResources().getColor(R.color.textdrawing_default));
                 tvClear.setTextColor(getResources().getColor(R.color.textdrawing_default));
@@ -165,6 +174,9 @@ public class ActivityDrawingDetails extends AppCompatActivity {
         ivStroke.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                if ((!i_Ads2.ShowAds(ActivityDrawingDetails.this))) {
+                return;
+            }
                 strokeDialog();
                 tvBrush.setTextColor(getResources().getColor(R.color.textdrawing_default));
                 tvClear.setTextColor(getResources().getColor(R.color.textdrawing_default));
@@ -178,6 +190,9 @@ public class ActivityDrawingDetails extends AppCompatActivity {
         ivClear.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                if ((!i_Ads2.ShowAds(ActivityDrawingDetails.this))) {
+                    return;
+                }
                 ActivityDrawingDetails.this.pv.clear();
                 tvBrush.setTextColor(getResources().getColor(R.color.textdrawing_default));
                 tvClear.setTextColor(getResources().getColor(R.color.textdrawing_checked));
@@ -191,6 +206,9 @@ public class ActivityDrawingDetails extends AppCompatActivity {
         ivErasure.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                if ((!i_Ads2.ShowAds(ActivityDrawingDetails.this))) {
+                    return;
+                }
                 ActivityDrawingDetails.this.pv.togglePencil(false);
                 ivErasure.setImageResource(R.drawable.erase_active_btn);
                 ivPencil.setImageResource(R.drawable.brush_btn);
@@ -206,6 +224,9 @@ public class ActivityDrawingDetails extends AppCompatActivity {
         ivPencil.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                if ((!i_Ads2.ShowAds(ActivityDrawingDetails.this))) {
+                    return;
+                }
                 ActivityDrawingDetails.this.pv.togglePencil(true);
                 ivPencil.setImageResource(R.drawable.brush_active_btn);
                 ivErasure.setImageResource(R.drawable.erase_btn);
@@ -221,6 +242,9 @@ public class ActivityDrawingDetails extends AppCompatActivity {
         ivSave.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                if ((!i_Ads2.ShowAds(ActivityDrawingDetails.this))) {
+                    return;
+                }
                 tvBrush.setTextColor(getResources().getColor(R.color.textdrawing_default));
                 tvClear.setTextColor(getResources().getColor(R.color.textdrawing_default));
                 tvColor.setTextColor(getResources().getColor(R.color.textdrawing_default));
@@ -267,9 +291,11 @@ public class ActivityDrawingDetails extends AppCompatActivity {
             public void onPageSelected(int arg0) {
                 tvStep.setText(arg0 + "/" + TOTAL_IMAGES);
             }
+
             @Override
             public void onPageScrolled(int arg0, float arg1, int arg2) {
             }
+
             @Override
             public void onPageScrollStateChanged(int arg0) {
             }
@@ -332,7 +358,9 @@ public class ActivityDrawingDetails extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-
+                if ((!i_Ads2.ShowAds(ActivityDrawingDetails.this))) {
+                    return;
+                }
                 currentPosition = viewpager.getCurrentItem();
 
                 int positionToMoveTo = currentPosition;
@@ -347,6 +375,9 @@ public class ActivityDrawingDetails extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+                if ((!i_Ads2.ShowAds(ActivityDrawingDetails.this))) {
+                    return;
+                }
                 currentPosition = viewpager.getCurrentItem();
 
                 int positionToMoveTo = currentPosition;
@@ -362,6 +393,9 @@ public class ActivityDrawingDetails extends AppCompatActivity {
         ivShare.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                if ((!i_Ads2.ShowAds(ActivityDrawingDetails.this))) {
+                    return;
+                }
                 tvDevBy.setVisibility(View.VISIBLE);
                 pos = viewpager.getCurrentItem();
                 new Handler().postDelayed(new Runnable() {
@@ -405,6 +439,11 @@ public class ActivityDrawingDetails extends AppCompatActivity {
                 onBackPressed();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        i_Ads2.ShowAdsBackPressedFinish(ActivityDrawingDetails.this);
     }
 
     protected int getItem(int i) {
@@ -707,6 +746,7 @@ public class ActivityDrawingDetails extends AppCompatActivity {
             public void onStopTrackingTouch(SeekBar seekBar) {
                 // herp
             }
+
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
                 // derp
@@ -724,6 +764,9 @@ public class ActivityDrawingDetails extends AppCompatActivity {
                 b.setOnClickListener(new OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        if ((!i_Ads2.ShowAds(ActivityDrawingDetails.this))){
+                            return;
+                        }
                         ActivityDrawingDetails.this.stroke = ActivityDrawingDetails.this.progress;
                         ActivityDrawingDetails.this.pv.paint.setStrokeWidth(ActivityDrawingDetails.this.stroke);
                         ActivityDrawingDetails.this.dialog.dismiss();

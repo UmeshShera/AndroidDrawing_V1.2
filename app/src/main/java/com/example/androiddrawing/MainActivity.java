@@ -1,6 +1,9 @@
 package com.example.androiddrawing;
 
+import static com.example.util.i_Ads2.PthinkFacebookBannerSmall;
+
 import android.Manifest;
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,6 +15,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -25,29 +30,27 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 
-import com.example.util.BannerAds;
 import com.example.util.JsonUtils;
 import com.example.util.StatusBarUtil;
-import com.facebook.ads.AudienceNetworkAds;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.example.util.i_Ads2;
+import com.example.util.i_SharedString2;
+import com.example.util.i_SharedUtils2;
 import com.google.android.material.navigation.NavigationView;
 import com.ixidev.gdpr.GDPRChecker;
-import com.viaviapp.androiddrawingdemo.R;
 
+import howtodraw.drawing.lessons.art.R;
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     FragmentManager fragmentManager;
-    MyApplication MyApp;
+    //    MyApplication MyApp;
     final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 102;
     String[] PERMISSIONS = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
     LinearLayout ll_ab, ll_share, ll_rate, ll_more, ll_privacy;
     NavigationView navigationView;
     private DrawerLayout mDrawerLayout;
-    LinearLayout adLayout;
+    //    LinearLayout adLayout;
     JsonUtils jsonUtils;
 
     @Override
@@ -71,32 +74,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-            }
-        });
-        AudienceNetworkAds.initialize(this);
+//        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+//            @Override
+//            public void onInitializationComplete(InitializationStatus initializationStatus) {
+//            }
+//        });
+//        AudienceNetworkAds.initialize(this);
 
         jsonUtils = new JsonUtils(this);
         jsonUtils.forceRTLIfSupported(getWindow());
 
         fragmentManager = getSupportFragmentManager();
-        MyApp = MyApplication.getInstance();
+        //MyApp = MyApplication.getInstance();
         navigationView = findViewById(R.id.nav_view);
         mDrawerLayout = findViewById(R.id.drawer_layout);
 
         //adLayout = findViewById(R.id.adView);
 
+        LinearLayout llbanner = findViewById(R.id.ll_ads);
+        PthinkFacebookBannerSmall(MainActivity.this, llbanner);
+
+
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close) {
             @Override
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
+                if ((!i_Ads2.ShowAds(MainActivity.this))){
+                    return;
+                }
             }
 
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
+
             }
         };
 
@@ -122,7 +133,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ll_rate.setOnClickListener(this);
         ll_share.setOnClickListener(this);
 
-        checkForConsent();
+        //checkForConsent();
+
+        ImageView btnplay = findViewById(R.id.btnplay);
+        btnplay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent advertise = new Intent(MainActivity.this, AdvertisementClass.class);
+                i_Ads2.ShowAds(MainActivity.this, advertise);
+            }
+        });
+        if (i_SharedUtils2.get(i_SharedString2.AdsExtraBtn).equalsIgnoreCase("1")) {
+            btnplay.setVisibility(View.VISIBLE);
+            ValueAnimator valueAnimator = ValueAnimator.ofFloat(0f, 300f);
+            //repeats the animation 2 times
+            valueAnimator.setRepeatCount(200000);
+            valueAnimator.setRepeatMode(ValueAnimator.RESTART);
+            valueAnimator.setInterpolator(new AccelerateDecelerateInterpolator()); // increase the speed first and then decrease
+            // animate over the course of 700 milliseconds
+            valueAnimator.setDuration(2000);
+// define how to update the view at each "step" of the animation
+            valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                @Override
+                public void onAnimationUpdate(ValueAnimator animation) {
+                    float progress = (float) animation.getAnimatedValue();
+                    btnplay.setRotationX(progress);
+
+                }
+            });
+            valueAnimator.start();
+        } else {
+            btnplay.setVisibility(View.GONE);
+        }
 
     }
 
@@ -140,15 +182,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int id = v.getId();
         if (id == R.id.ll_ab) {
             Intent intent = new Intent(MainActivity.this, ActivityAboutUs.class);
-            startActivity(intent);
+            //startActivity(intent);
+            i_Ads2.ShowAds(MainActivity.this, intent);
         } else if (id == R.id.ll_share) {
             Intent sendIntent = new Intent();
             sendIntent.setAction(Intent.ACTION_SEND);
             sendIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_msg) + "https://play.google.com/store/apps/details?id=" + getPackageName());
             sendIntent.setType("text/plain");
-            startActivity(sendIntent);
-
+//            startActivity(sendIntent);
+            i_Ads2.ShowAds(MainActivity.this, sendIntent);
         } else if (id == R.id.ll_rate) {
+            if ((!i_Ads2.ShowAds(MainActivity.this))){
+                return;
+            }
             final String appName = getPackageName();//your application package name i.e play store application url
             Log.e("package:", appName);
             try {
@@ -162,19 +208,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 + appName)));
             }
         } else if (id == R.id.ll_more) {
+            if ((!i_Ads2.ShowAds(MainActivity.this))){
+                return;
+            }
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.play_more_apps))));
 
         } else if (id == R.id.ll_priv) {
-            Intent intentpr = new Intent(MainActivity.this, ActivityPrivacy.class);
-            startActivity(intentpr);
+            Intent i = new Intent(MainActivity.this, AcitivityWebview.class);
+            i.putExtra("URL", "file:///android_asset/privacy_policy.html");
+            i.putExtra("Title", getResources().getString(R.string.prv_policy));
+            //startActivity(i);
+            i_Ads2.ShowAds(MainActivity.this, i);
         }
         mDrawerLayout.closeDrawer(GravityCompat.START);
     }
 
     @Override
     public void onBackPressed() {
-        ExitApp();
-
+//        ExitApp();
+        i_Ads2.ShowAdsBackPressedFinish(MainActivity.this);
     }
 
     private void ExitApp() {
@@ -235,6 +287,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .withPublisherIds(getString(R.string.admob_publisher_id))
                 //.withTestMode("FA0F55855A8169A47EB9D713413B9FE9")
                 .check();
-        BannerAds.ShowBannerAds(MainActivity.this, adLayout);
+        //BannerAds.ShowBannerAds(MainActivity.this, adLayout);
     }
 }

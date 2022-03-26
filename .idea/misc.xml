@@ -3,15 +3,42 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/layout/activity_main.xml" value="0.12037037037037036" />
+        <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/drawable/ad_btn_bg.xml" value="0.21203703703703702" />
+        <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/drawable/clear_hover.xml" value="0.21666666666666667" />
+        <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/drawable/color_hover.xml" value="0.21666666666666667" />
+        <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/drawable/gradient_category.xml" value="0.17604166666666668" />
+        <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/drawable/gradient_statusbar.xml" value="0.21203703703703702" />
+        <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/drawable/gradient_toolbar.xml" value="0.21203703703703702" />
+        <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/drawable/save_hover.xml" value="0.21666666666666667" />
+        <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/drawable/stroke_hover.xml" value="0.21666666666666667" />
+        <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/layout/activity_aboutus.xml" value="0.14" />
+        <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/layout/activity_advertisement_class.xml" value="0.20416666666666666" />
+        <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/layout/activity_extra_exit.xml" value="0.16" />
+        <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/layout/activity_extra_start.xml" value="0.19" />
+        <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/layout/activity_privacy.xml" value="0.18" />
+        <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/layout/activity_privacy2.xml" value="0.16" />
+        <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/layout/activity_start.xml" value="0.15" />
+        <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/layout/activity_webview.xml" value="0.20416666666666666" />
+        <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/layout/ad_unified.xml" value="0.15520833333333334" />
         <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/layout/admob_ad.xml" value="0.1" />
-        <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/layout/drawingdetails_activity.xml" value="0.12037037037037036" />
+        <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/layout/admob_adapter.xml" value="0.1" />
+        <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/layout/admob_native_list.xml" value="0.20416666666666666" />
+        <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/layout/ads_progress.xml" value="0.20416666666666666" />
+        <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/layout/app_update_dialog.xml" value="0.12" />
+        <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/layout/drawingdetails_activity.xml" value="0.21" />
+        <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/layout/exit_dailogue.xml" value="0.10520833333333333" />
         <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/layout/fragment_drawinglist.xml" value="0.18" />
-        <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/layout/layout_navigation.xml" value="0.2" />
+        <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/layout/item_facebook_native_ad_launcher.xml" value="0.20416666666666666" />
+        <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/layout/item_facebook_native_ad_outline_launcher.xml" value="0.17407407407407408" />
+        <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/layout/layout_navigation.xml" value="0.16" />
         <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/layout/native_ad_layout.xml" value="0.20416666666666666" />
-        <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/layout/row_drawing_item.xml" value="0.17" />
-        <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/layout/row_toolbar.xml" value="0.14" />
+        <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/layout/row_drawing_item.xml" value="0.25" />
+        <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/layout/row_toolbar.xml" value="0.2" />
+        <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/layout/slider_adapter.xml" value="0.16" />
         <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/layout/splash_activity.xml" value="0.1" />
+        <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/layout/stroke_dialog.xml" value="0.20416666666666666" />
+        <entry key="..\:/Vivek Hirpara Project/WorkSpace/Project/WorkingProject/androiddrawing/AndroidDrawing_V1.2/app/src/main/res/menu/menu_drawer.xml" value="0.16944444444444445" />
       </map>
     </option>
   </component>
@@ -20,5 +47,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.16" />
+      </ProjectState>
+    </option>
   </component>
 </project>

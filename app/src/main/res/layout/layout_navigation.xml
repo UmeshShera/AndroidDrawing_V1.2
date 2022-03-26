@@ -30,20 +30,20 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
-                    android:layout_marginBottom="10dp"
                     android:layout_marginStart="8dp"
                     android:orientation="horizontal">
 
                     <ImageView
                         android:id="@+id/imageView"
-                        android:layout_width="65dp"
-                        android:layout_height="65dp"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
                         android:layout_gravity="center"
                         android:contentDescription="@string/app_name"
                         android:scaleType="fitXY"
                         android:src="@mipmap/round_icon" />
 
                     <LinearLayout
+                        android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center|start"
@@ -57,7 +57,7 @@
                             android:layout_marginEnd="5dp"
                             android:layout_marginStart="5dp"
                             android:text="@string/app_name"
-                            android:textColor="@color/black"
+                            android:textColor="@color/white"
                             android:textSize="17sp"
                             android:textStyle="bold"
                             tools:ignore="MissingPrefix" />
@@ -68,7 +68,7 @@
                             android:layout_marginEnd="5dp"
                             android:layout_marginStart="5dp"
                             android:text="@string/tag_line"
-                            android:textColor="@color/black"
+                            android:textColor="@color/white"
                             android:textSize="14sp" />
 
                     </LinearLayout>
@@ -107,7 +107,7 @@
                     fontPath="fonts/Montserrat-SemiBold_0.otf"
                     tools:ignore="MissingPrefix"
                     android:text="@string/menu_about"
-                    android:textColor="@color/black"
+                    android:textColor="@color/black1"
                     android:textSize="16sp" />
 
             </LinearLayout>
@@ -138,7 +138,7 @@
                     android:text="@string/menu_share_app"
                     fontPath="fonts/Montserrat-SemiBold_0.otf"
                     tools:ignore="MissingPrefix"
-                    android:textColor="@color/black"
+                    android:textColor="@color/black1"
                     android:textSize="16sp" />
 
             </LinearLayout>
@@ -169,12 +169,13 @@
                     android:text="@string/menu_rate_app"
                     fontPath="fonts/Montserrat-SemiBold_0.otf"
                     tools:ignore="MissingPrefix"
-                    android:textColor="@color/black"
+                    android:textColor="@color/black1"
                     android:textSize="16sp" />
 
             </LinearLayout>
 
             <LinearLayout
+                android:visibility="gone"
                 android:id="@+id/ll_more"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -200,7 +201,7 @@
                     fontPath="fonts/Montserrat-SemiBold_0.otf"
                     tools:ignore="MissingPrefix"
                     android:text="@string/menu_moreapp"
-                    android:textColor="@color/black"
+                    android:textColor="@color/black1"
                     android:textSize="16sp" />
 
             </LinearLayout>
@@ -231,7 +232,7 @@
                     android:text="@string/menu_privacy"
                     fontPath="fonts/Montserrat-SemiBold_0.otf"
                     tools:ignore="MissingPrefix"
-                    android:textColor="@color/black"
+                    android:textColor="@color/black1"
                     android:textSize="16sp" />
 
             </LinearLayout>

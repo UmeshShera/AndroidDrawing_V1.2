@@ -15,6 +15,7 @@
             android:orientation="vertical">
 
             <RelativeLayout
+                android:visibility="gone"
                 android:id="@+id/relativeLayout_slider"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">

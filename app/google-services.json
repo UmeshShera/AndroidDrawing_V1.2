@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "53946313609",
-    "project_id": "my11circle-ce246",
-    "storage_bucket": "my11circle-ce246.appspot.com"
+    "project_number": "951477826461",
+    "project_id": "draw-pic-5a969",
+    "storage_bucket": "draw-pic-5a969.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:53946313609:android:37059f69b3b47f6b320f58",
+        "mobilesdk_app_id": "1:951477826461:android:5279bb0b0b1809abebf574",
         "android_client_info": {
-          "package_name": "com.my11circle.prediction.tips"
+          "package_name": "howtodraw.drawing.lessons.art"
         }
       },
       "oauth_client": [
         {
-          "client_id": "53946313609-galdnfe4fg73a0hn6up96kdfklitukhs.apps.googleusercontent.com",
+          "client_id": "951477826461-dvde280rbcv24scqsaij324nhstg4b9h.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCUDCSEAXroA3hWTyex8FVTpF2TfAnVPos"
+          "current_key": "AIzaSyCOx5TCcO_WD24oxhY--PWNEBnwC85abgM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "53946313609-galdnfe4fg73a0hn6up96kdfklitukhs.apps.googleusercontent.com",
+              "client_id": "951477826461-dvde280rbcv24scqsaij324nhstg4b9h.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

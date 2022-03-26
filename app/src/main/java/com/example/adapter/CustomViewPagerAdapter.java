@@ -10,15 +10,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
-
 import com.example.item.SliderItem;
 import com.example.util.EnchantedViewPager;
 import com.squareup.picasso.Picasso;
-import com.viaviapp.androiddrawingdemo.R;
-
-
 import java.util.List;
+
+import howtodraw.drawing.lessons.art.R;
+
 
 public class CustomViewPagerAdapter extends PagerAdapter {
 

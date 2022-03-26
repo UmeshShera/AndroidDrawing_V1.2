@@ -1,6 +1,6 @@
 package com.example.util;
 
-import com.viaviapp.androiddrawingdemo.R;
+import howtodraw.drawing.lessons.art.R;
 
 public class Drawing_Image_Arrays {
 

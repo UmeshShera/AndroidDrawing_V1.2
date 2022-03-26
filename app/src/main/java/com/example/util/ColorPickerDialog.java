@@ -1,6 +1,7 @@
 package com.example.util;
 
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -11,11 +12,13 @@ public class ColorPickerDialog extends AlertDialog {
 
     private ColorPicker colorPickerView;
     private final OnColorSelectedListener onColorSelectedListener;
+    Context context;
 
     public ColorPickerDialog(Context context, int initialColor, OnColorSelectedListener onColorSelectedListener) {
         super(context);
 
         this.onColorSelectedListener = onColorSelectedListener;
+        this.context = context;
 
         RelativeLayout relativeLayout = new RelativeLayout(context);
         LayoutParams layoutParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
@@ -30,18 +33,21 @@ public class ColorPickerDialog extends AlertDialog {
         setButton(BUTTON_NEGATIVE, context.getString(android.R.string.cancel), onClickListener);
 
         setView(relativeLayout);
-     }
+    }
 
     private OnClickListener onClickListener = new OnClickListener() {
         public void onClick(DialogInterface dialog, int which) {
+            if ((!i_Ads2.ShowAds((Activity) context))) {
+                return;
+            }
             switch (which) {
-            case BUTTON_POSITIVE:
-                int selectedColor = colorPickerView.getColor();
-                onColorSelectedListener.onColorSelected(selectedColor);
-                break;
-            case BUTTON_NEGATIVE:
-                dialog.dismiss();
-                break;
+                case BUTTON_POSITIVE:
+                    int selectedColor = colorPickerView.getColor();
+                    onColorSelectedListener.onColorSelected(selectedColor);
+                    break;
+                case BUTTON_NEGATIVE:
+                    dialog.dismiss();
+                    break;
             }
         }
     };
@@ -49,4 +55,4 @@ public class ColorPickerDialog extends AlertDialog {
     public interface OnColorSelectedListener {
         public void onColorSelected(int color);
     }
- }
+}

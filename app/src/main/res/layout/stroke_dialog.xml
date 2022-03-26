@@ -22,15 +22,15 @@
 
     <Button
         android:id="@+id/dialog_button"
+        fontPath="fonts/Montserrat-SemiBold_0.otf"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_below="@+id/dialog_seekbar"
-        fontPath="fonts/Montserrat-SemiBold_0.otf"
-        tools:ignore="MissingPrefix"
-        android:paddingEnd="8dp"
-        android:paddingStart="8dp"
         android:background="@drawable/border_stroke"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
         android:text="@string/stroke_title"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        tools:ignore="MissingPrefix" />
 
 </RelativeLayout>

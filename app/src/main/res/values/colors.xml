@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#ed3a0a</color>
-    <color name="colorPrimaryDark">#cb3709</color>
-    <color name="colorAccent">#cb3709</color>
+    <color name="colorPrimary">#F40778</color>
+    <color name="colorPrimaryDark">#D10A69</color>
+    <color name="colorAccent">#AE0C59</color>
 
-    <color name="toolbar_end">#f77604</color>
-    <color name="toolbar_start">#ee3e0a</color>
-    <color name="status_bar_start">#cb3609</color>
-    <color name="status_bar_end">#d05904</color>
-    <color name="stroke_btn_bg">#ed3a0a</color>
+    <color name="Card_BG">#ffffff</color>
+    <color name="bg_color1">#f5f5f5</color>
+    <color name="extra_tv_color">#1D6EEE</color>
 
-    <color name="textdrawing_default">#ed3a0a</color>
+    <color name="toolbar_end">#F40778</color>
+    <color name="toolbar_start">#A3195B</color>
+    <color name="status_bar_start">#C50560</color>
+    <color name="status_bar_end">#B6055A</color>
+    <color name="stroke_btn_bg">#F41881</color>
+
+    <color name="textdrawing_default">#F40778</color>
     <color name="textdrawing_checked">#000000</color>
-    <color name="text_color">#ec350b</color>
+    <color name="text_color">#EC0E78</color>
     <color name="white">#ffffff</color>
     <color name="bg">#f9f9f9</color>
     <color name="drawer_line">#808b8b8b</color>
     <color name="black">#6a6a6a</color>
+    <color name="black1">#000000</color>
 
-    <color name="select_dot">#ed3a0a</color>
+    <color name="select_dot">#F40778</color>
     <color name="non_select_dot">#6a6a6a</color>
 
     <color name="about_title">#404040</color>

@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.viaviapp.androiddrawingdemo.R;
+import howtodraw.drawing.lessons.art.R;
 
 
 public class EnchantedViewPager extends ViewPager {

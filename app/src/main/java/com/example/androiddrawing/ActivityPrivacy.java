@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import com.example.util.JsonUtils;
 import com.example.util.StatusBarUtil;
-import com.viaviapp.androiddrawingdemo.R;
+import howtodraw.drawing.lessons.art.R;
 import java.io.IOException;
 import java.io.InputStream;
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
